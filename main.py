@@ -1,11 +1,15 @@
-import requests, re, json
+import requests, re, json, sys, codecs
 from bs4 import BeautifulSoup
 from aes import encryptAES
 from config import *
 
+sys.path.append('.')
+requests.packages.urllib3.disable_warnings()
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+
 cas_url = 'https://cas.swjtu.edu.cn/authserver/login?service=http://xgsys.swjtu.edu.cn/cas/onelogin.aspx?type=SPCP'
 
-result = ""
+result = '西南交大健康填报\n'
 
 header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36 Edg/92.0.902.78'
