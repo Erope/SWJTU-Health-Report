@@ -59,7 +59,7 @@ def submit():
         return
 
     r = session.get('http://xgsys.swjtu.edu.cn/SPCPTest3/Web/Report/Index', headers=header, timeout=10)
-    if '71d7cdec-66e3-427a-87f3-b2f5defee84f' not in r.text:
+    if '我已阅读承诺书，并保证按承诺书内容执行。' not in r.text:
         result += '或许已经填报过了？退出中...\n'
         return
 
